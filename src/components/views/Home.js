@@ -1,10 +1,12 @@
-import React from 'react'
-import { render } from 'node-sass'
+import React from "react";
+import Layout from "./Layout";
 
-function Home(){
-    render(
-        <div>hi its home</div>
-    )
+function Home() {
+	return(
+		<Layout>
+			Home
+		</Layout>
+	);
 }
 
-export default Home
+export default Home;
