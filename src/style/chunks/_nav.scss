@@ -1,50 +1,27 @@
 $btnGreen:#16a882;
-nav {
-	padding-left: 4rem !important;
-	padding-right: 4rem !important;
-	border-bottom: 1px $grey90 solid;
-	background: white;
-	.nav-chunk {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-		input {
-            height: 2rem;
-			border-color: $grey90;
-			border-width: 1px;
-			padding: 0.25rem 0.5rem;
-			font-size: 0.8rem;
-			border-radius: 4px;
-			color: grey;
-			&:active,
-			&:hover,
-			&:focus {
-				// box-shadow: 3px 3px 0 0 black;
-				border-color: $greyish;
-				box-shadow: unset;
-				color: black;
+
+header {
+	border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+    background: white;
+}
+
+.search {
+    border: solid 1px #dedddd;
+    font-size: 15px;
+    min-width: 250px;
+    min-height: 39px;
+    border-radius: 2px;
+    padding-left: 13px;
+    margin-left: 30px;
+}
+
+.header-icons {
+	margin-left: 30px;
+	li{
+		a{color: #525252;
+			svg{
+				width: 24px;
 			}
 		}
-		.navbar-nav {
-			flex-direction: row;
-			.nav-item {
-				margin: 0rem 0rem 0rem 2rem;
-			}
-        }
-        button{
-            background: $btnGreen;
-            color: white;
-            padding: .2rem 2rem;
-            border-radius: 2px;
-            margin-right: 5rem;
-            &:active,
-			&:hover,
-			&:focus {
-                // box-shadow: 3px 3px 0 0 black;
-                background: darken($btnGreen,5);
-				box-shadow: unset;
-				color: white;
-			}
-        }
 	}
 }

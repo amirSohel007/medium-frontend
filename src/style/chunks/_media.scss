@@ -1,0 +1,32 @@
+@media(max-width:767px){
+    .header-icons {
+        margin-left: 0;
+        top: 0;
+        right: 0;
+        flex-direction: row;
+        position: absolute;
+        li {
+            a{
+                svg{
+                    width: 21px;
+                    margin-left: 12px;
+                }
+            }
+        }
+    }
+
+    .search {
+        font-size: 14px;
+        width: 130px;
+        min-width: auto;
+        position: absolute;
+        top: 5px;
+        left: 29%;
+        min-height: 36px;
+    }
+
+    .navbar-brand img {
+        width: 110px !important;
+        margin-bottom: 0 !important;
+    }
+}

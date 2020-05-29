@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "./Layout";
 
 function Home() {
-	return(
+	return (
 		<Layout>
 			<div className="main-container ptb-50">
 				<div className="row">
