@@ -1,4 +1,11 @@
 @media(max-width:767px){
+    header {
+        padding: 6px 0;
+        position: sticky;
+        top: 0;
+        z-index: 9999999;
+    }
+
     .header-icons {
         margin-left: 0;
         top: 0;
@@ -17,7 +24,7 @@
 
     .search {
         font-size: 14px;
-        width: 160px;
+        width: 45%;
         min-width: auto;
         position: absolute;
         top: 5px;
