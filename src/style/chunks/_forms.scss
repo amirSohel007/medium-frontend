@@ -1,0 +1,30 @@
+$btnGreen:#16a882;
+
+.form-wrapper {
+    border: solid 1px #efefef;
+}
+
+.form-control {
+    border-color: #e4e4e4;
+    font-size: 14px;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 !important;
+        border-color: $btnGreen !important;
+    }
+}
+
+label {font-size: 13px;}
+
+.btn{border-radius: 2px !important;}
+
+.btn-primary{
+    background: $btnGreen;
+    border: $btnGreen;
+    &:hover, &:focus, &:active {
+        background: $btnGreen !important;
+        outline: none;
+        border-color: $btnGreen !important;
+        box-shadow: 0 0 0 !important;
+    }
+}
