@@ -13,8 +13,11 @@ const Login = () => {
 	};
 
 	return (
-		<div id="login-container" className="container">
-			<form>
+		<div className="container">
+			<div className="row justify-content-center">
+				<div className="col-sm-4">
+					<div className="bg-white form-wrapper mt-5 p-4 border-radius-4">
+					<form>
 				<div className="form-group text-center">
 					<h3 className="text-muted">Login</h3>
 				</div>
@@ -43,7 +46,12 @@ const Login = () => {
 				<button type="submit" className="btn btn-primary" disabled={processing} onClick={formSubmit}>
 					{processing ? "Processing...." : "Login"}
 				</button>
+
+				<p>No account ? <a href="">Create one </a></p>
 			</form>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
