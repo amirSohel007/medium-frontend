@@ -8,8 +8,8 @@
         li {
             a{
                 svg{
-                    width: 21px;
-                    margin-left: 12px;
+                    width: 23px;
+                    margin-left: 15px;                
                 }
             }
         }
@@ -17,12 +17,13 @@
 
     .search {
         font-size: 14px;
-        width: 130px;
+        width: 160px;
         min-width: auto;
         position: absolute;
         top: 5px;
         left: 29%;
         min-height: 36px;
+        margin-left: 20px;
     }
 
     .navbar-brand img {
