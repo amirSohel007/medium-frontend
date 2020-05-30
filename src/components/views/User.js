@@ -7,7 +7,11 @@ const UserProfile = () => {
     const apiURL = process.env.REACT_APP_API_URL
 
     useEffect(async () => {
-        let res = await axios.get(`${apiURL}user/5ed238851f4618001780179b`);
+        let res = await axios.get(`${apiURL}user/5ed238851f4618001780179b`, {
+            headers: {
+                'Authorization': 'Bearer' + localStorage.getItem('token')
+              }
+        });
         setUserDetail(res.data)
         console.log(res.data)
     },[])

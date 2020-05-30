@@ -9,13 +9,15 @@ const Register = () => {
 	const [password, setPassword] = useState("");
 	const [processing, setProcessing] = useState(false);
 	const [isRegister, registerStatus] = useState(false);
-	const apiURL = process.env.REACT_APP_API_URL
+	const apiURL = process.env.REACT_APP_API_URL;
+	
 	const formSubmit = async (e) => {
 		setProcessing(true); //start button processing text
 		e.preventDefault();
 		const data = { username, email, password };
 		let res = await axios.post(`${apiURL}register`, data);
 		if (res.data) {
+			localStorage.setItem("token", res.data.token);
 			setProcessing(false);
 			registerStatus(true);
 		} else console.log("something went wrong");
@@ -84,7 +86,6 @@ const Register = () => {
 					</div>
 				</div>
 			</div>
-			
 		</Layout>
 	);
 };
