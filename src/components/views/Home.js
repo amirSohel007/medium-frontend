@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "./Layout";
-import { Link } from "react-router-dom";
 import Hashtag from "./partials/Hashtag";
 import PostCard from "./partials/PostCard";
 import PostCardMini from "./partials/PostCardMini";

@@ -2,6 +2,8 @@ import React from 'react'
 import { RiHeart2Line as HeartIcon } from "react-icons/ri";
 import { FaRegCommentAlt as CommentIcon } from "react-icons/fa";
 const PostCard = ({img,name,date,title,preview,reaction,comment}) => {
+
+
     return (
         <div className="post-card mb-4">
             <div className="row">

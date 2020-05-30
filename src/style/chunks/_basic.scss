@@ -37,10 +37,13 @@ code {
 .text-22 {font-size: 22;}
 .text-23 {font-size: 23px;}
 
-.side-panel {
-    border: solid 1px #efefef;
-    min-height: 350px;
-}
+
+	.side-panel {
+		border: solid 1px #efefef;
+		min-height: 350px;
+		position: sticky;
+		top: 112px;
+	}
 
 
 .ptb-50 {
