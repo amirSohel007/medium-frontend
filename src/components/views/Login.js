@@ -14,10 +14,13 @@ const Login = () => {
 		setProcessing(true); 
 		const data = { email, password };
 		let res = await axios.post("http://node-article-api.herokuapp.com/api/login", data);
-		if (res.data) {
+		if (res.data.status) {
 			setProcessing(false);
 			history.push("/"); //redirect on home page after login
-		} else console.log("something went wrong");
+		} else {
+			setProcessing(false);
+			console.error(res.data.message);
+		} 
 	};
 
 	return (
