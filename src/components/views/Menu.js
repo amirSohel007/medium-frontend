@@ -9,7 +9,7 @@ const Menu = () => {
 			<Layout>
 				<nav className="navbar navbar-expand-lg p-0">
 					<Link className="navbar-brand" to="/">
-						<img style={{ width: "150px" }} className="mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" />
+						<img style={{ width: "150px" }} className="mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="logo"/>
 					</Link>
 					<div className="navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">

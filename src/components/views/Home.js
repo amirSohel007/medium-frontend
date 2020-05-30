@@ -2,33 +2,22 @@ import React, { useEffect, useState } from "react";
 import Layout from "./Layout";
 import Hashtag from "./partials/Hashtag";
 import PostCard from "./partials/PostCard";
-import PostCardMini from "./partials/PostCardMini";
 import profileImg from "./../../img/profile.jpg";
 import axios from "axios";
 
 function Home() {
-	const [post, setPosts] = useState([])
+	const [post, setPosts] = useState([]);
 	const apiURL = process.env.REACT_APP_API_URL;
 
-	useEffect(async ()=>{
-		let res = await axios.get(`${apiURL}posts`);
-		setPosts(res.data)
-	},[])
+	useEffect(() => {
+		async function register() {
+			let res = await axios.get(`${apiURL}posts`);
+			setPosts(res.data);
+		}
+		register();
+	});
 
-	let postCard =
-		post &&
-		post.map((post) => (
-			<PostCard
-				key={post._id}
-				img={profileImg}
-				name="Amir Sohel"
-				date="30 May 2020"
-				title={post.title}
-				preview={post.bodytext}
-				reaction={post.likes}
-				comment={post.comments}
-			/>
-		));
+	let postCard = post && post.map((post) => <PostCard key={post._id} img={profileImg} name="Amir Sohel" date="30 May 2020" title={post.title} preview={post.bodytext} reaction={post.likes} comment={post.comments} />);
 	return (
 		<Layout>
 			<div className="main-container ptb-50">
@@ -48,20 +37,15 @@ function Home() {
 						</div>
 					</div>
 
-					<div className="col-sm-6 posts-holder">
-						{postCard}
-					</div>
+					<div className="col-sm-6 posts-holder">{postCard}</div>
 
 					<div className="col-sm-3">
-					<div className="bg-white p-3 side-panel">
-						{/* {postCardMini}
+						<div className="bg-white p-3 side-panel">{/* {postCardMini}
 						{postCardMini}
 						{postCardMini}
 						{postCardMini}
 						{postCardMini}
-						{postCardMini} */}
-						</div>
-						
+						{postCardMini} */}</div>
 					</div>
 				</div>
 			</div>

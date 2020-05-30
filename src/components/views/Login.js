@@ -7,12 +7,12 @@ const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [processing, setProcessing] = useState(false);
-	const [isError, setError] = useState("")
+	const [isError, setError] = useState("");
 	const history = useHistory();
-	const apiURL = process.env.REACT_APP_API_URL
+	const apiURL = process.env.REACT_APP_API_URL;
 	const formSubmit = async (e) => {
 		e.preventDefault();
-		setProcessing(true); 
+		setProcessing(true);
 		const data = { email, password };
 		let res = await axios.post(`${apiURL}login`, data);
 		if (res.data.status) {
@@ -20,8 +20,8 @@ const Login = () => {
 			history.push("/"); //redirect on home page after login
 		} else {
 			setProcessing(false);
-			setError(res.data.message)
-		} 
+			setError(res.data.message);
+		}
 	};
 
 	return (
@@ -31,29 +31,15 @@ const Login = () => {
 					<div className="bg-white form-wrapper mt-5 p-4 border-radius-4">
 						<form>
 							<div className="form-group text-center">
-								<img className="w-50 mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" />
+								<img className="w-50 mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="logo"/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="">Email/Id</label>
-								<input
-									type="text"
-									className="form-control"
-									id="user-id"
-									placeholder="Email-id"
-									value={email}
-									onChange={(e) => setEmail(e.target.value)}
-								/>
+								<input type="text" className="form-control" id="user-id" placeholder="Email-id" value={email} onChange={(e) => setEmail(e.target.value)} />
 							</div>
 							<div className="form-group">
 								<label htmlFor="">Password</label>
-								<input
-									type="password"
-									className="form-control"
-									id="password"
-									placeholder="Password"
-									value={password}
-									onChange={(e) => setPassword(e.target.value)}
-								/>
+								<input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
 							</div>
 							<button type="submit" className="btn btn-primary w-100 mb-3" disabled={processing} onClick={formSubmit}>
 								{processing ? "Processing...." : "Login"}
@@ -65,7 +51,7 @@ const Login = () => {
 									Create one
 								</NavLink>
 							</p>
-							 	{isError && (
+							{isError && (
 								<div className="alert alert-danger mt-3 text-12 text-center" role="alert">
 									{isError}
 								</div>

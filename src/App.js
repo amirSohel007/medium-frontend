@@ -12,10 +12,18 @@ function App() {
 		<Router>
 			<Menu />
 			<Switch>
-				<Route path="/" exact><Home /></Route>
-				<Route path="/login" exact><Login /></Route>
-				<Route path="/register" exact><Register /></Route>
-				<Route path="/user/:id" exact><UserProfile /></Route>
+				<Route path="/" exact>
+					<Home />
+				</Route>
+				<Route path="/login" exact>
+					<Login />
+				</Route>
+				<Route path="/register" exact>
+					<Register />
+				</Route>
+				<Route path="/user/:id" exact>
+					<UserProfile />
+				</Route>
 			</Switch>
 		</Router>
 	);

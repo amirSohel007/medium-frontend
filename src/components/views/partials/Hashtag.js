@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Hashtag = ({tag,count}) => {
+const Hashtag = ({ tag, count }) => {
 	return (
 		<Link to={`tag/${tag}`} className="hashtag">
 			<span className="tag">{tag}</span>
