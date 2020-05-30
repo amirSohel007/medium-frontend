@@ -11,7 +11,7 @@ const Login = () => {
 	const history = useHistory();
 	const formSubmit = async (e) => {
 		e.preventDefault();
-		setProcessing(true);
+		setProcessing(true); 
 		const data = { email, password };
 		let res = await axios.post("http://node-article-api.herokuapp.com/api/login", data);
 		if (res.data) {
