@@ -84,6 +84,7 @@ const Register = () => {
 					</div>
 				</div>
 			</div>
+			
 		</Layout>
 	);
 };

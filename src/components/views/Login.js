@@ -8,6 +8,7 @@ const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [processing, setProcessing] = useState(false);
+	const [isError, setError] = useState("")
 	const history = useHistory();
 	const formSubmit = async (e) => {
 		e.preventDefault();
@@ -19,7 +20,7 @@ const Login = () => {
 			history.push("/"); //redirect on home page after login
 		} else {
 			setProcessing(false);
-			console.error(res.data.message);
+			setError(res.data.message)
 		} 
 	};
 
@@ -64,6 +65,11 @@ const Login = () => {
 									Create one
 								</NavLink>
 							</p>
+							 	{isError && (
+								<div class="alert alert-danger mt-3 text-12 text-center" role="alert">
+									{isError}
+								</div>
+							)}
 						</form>
 					</div>
 				</div>
