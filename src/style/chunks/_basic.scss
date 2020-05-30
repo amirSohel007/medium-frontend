@@ -1,6 +1,13 @@
+// only 3 weights available in this
+// @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 body {
 	margin: 0;
-	font-family: 'Sen', sans-serif;
+	// font-family: 'Sen', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: #f5f5f5;

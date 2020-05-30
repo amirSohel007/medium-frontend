@@ -1,0 +1,49 @@
+.post-card {
+	background: green;
+	padding: 1rem 1rem 2rem 1rem;
+	background: white;
+	border: 1px solid $grey90;
+	.row {
+		margin: 0;
+	}
+	.img-holder {
+		display: flex;
+		align-items: center;
+		margin-right: 0.5rem;
+		img {
+			border-radius: 50%;
+		}
+	}
+	.meta-holder {
+		display: flex;
+        flex-direction: column;
+        .name{
+            font-size: .8rem;
+        }
+        .small{
+            font-size: .7rem;
+        }
+	}
+	.post-title {
+		margin: 1.2rem 0rem 0.5rem 0rem;
+		font-family: "Ubuntu", sans-serif;
+	}
+	.post-preview {
+		margin: 0rem 0rem 1rem 0rem;
+		font-family: "Ubuntu", sans-serif;
+		font-size: 0.9rem;
+        color: transparentize($color: black, $amount: 0.2);
+	}
+
+	.reactions-holder,
+	.comments-holder {
+		margin-right: 2rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: transparentize($color: black, $amount: 0.2);
+	}
+	.heart,
+	.comment {
+		margin-right: 0.6rem;
+	}
+}

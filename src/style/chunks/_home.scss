@@ -1,0 +1,27 @@
+.hashtag{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: unset;
+    text-decoration: unset;
+    line-height: 2rem;
+    &:hover{
+        text-decoration: unset;
+        color: unset;
+    }
+    .tag{
+        
+        letter-spacing: 1px;
+        &::before{
+            content: "#";
+        }
+    }
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-holder{
+    .post-card:first-child {
+        padding-top:0;
+    }
+}
