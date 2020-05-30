@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const UserProfile = () => {
 	const [userDetail, setUserDetail] = useState("");
