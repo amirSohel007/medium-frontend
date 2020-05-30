@@ -2,7 +2,11 @@ $btnGreen:#16a882;
 
 header {
 	border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
-    background: white;
+	background: white;
+	padding: 6px 0;
+	position: sticky;
+	top: 0;
+	z-index: 9999999;
 }
 
 .search {

@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import Layout from "./Layout";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
+	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [processing, setProcessing] = useState(false);
-	const formSubmit = (e) => {
+	const [isRegister, registerStatus] = useState(false);
+
+	const formSubmit = async (e) => {
+		setProcessing(true); //start button processing text
 		e.preventDefault();
-		setProcessing(true);
-		setTimeout(() => {
+		const data = { username, email, password };
+		let res = await axios.post("http://node-article-api.herokuapp.com/api/register", data);
+		if (res.data) {
 			setProcessing(false);
-		}, 2000);
+			registerStatus(true);
+		} else console.log("something went wrong");
 	};
 
 	return (
@@ -22,17 +29,27 @@ const Register = () => {
 						<form>
 							<div className="form-group text-center">
 								<img className="w-50 mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" />
-								<p className="text-13 mb-3">Don't worry, Your credentilas is secured with us.</p>
+							</div>
+							<div className="form-group">
+								<label htmlFor="">Your Name</label>
+								<input
+									type="text"
+									className="form-control"
+									id="user"
+									placeholder="Name"
+									value={username}
+									onChange={(e) => setUsername(e.target.value)}
+								/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="">Email/Id</label>
 								<input
-									type="text"
+									type="email"
 									className="form-control"
-									id="user-id"
+									id="email"
 									placeholder="Email-id"
-									value={username}
-									onChange={(e) => setUsername(e.target.value)}
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
@@ -55,6 +72,14 @@ const Register = () => {
 									Login
 								</NavLink>
 							</p>
+							{isRegister && (
+								<div class="alert alert-success mt-3 text-12 text-center" role="alert">
+									Your account is created. Please{" "}
+									<NavLink className="primary-text" to="login">
+										Login
+									</NavLink>
+								</div>
+							)}
 						</form>
 					</div>
 				</div>

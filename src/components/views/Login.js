@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import Layout from "./Layout";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
-	const [username, setUsername] = useState("");
+	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [processing, setProcessing] = useState(false);
-
-	const formSubmit = (e) => {
+	const history = useHistory();
+	const formSubmit = async (e) => {
 		e.preventDefault();
 		setProcessing(true);
-		setTimeout(() => {
+		const data = { email, password };
+		let res = await axios.post("http://node-article-api.herokuapp.com/api/login", data);
+		if (res.data) {
 			setProcessing(false);
-		}, 2000);
+			history.push("/"); //redirect on home page after login
+		} else console.log("something went wrong");
 	};
 
 	return (
@@ -23,7 +28,6 @@ const Login = () => {
 						<form>
 							<div className="form-group text-center">
 								<img className="w-50 mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" />
-								<p className="text-13 mb-3">Don't worry, Your credentilas is secured with us.</p>
 							</div>
 							<div className="form-group">
 								<label htmlFor="">Email/Id</label>
@@ -32,8 +36,8 @@ const Login = () => {
 									className="form-control"
 									id="user-id"
 									placeholder="Email-id"
-									value={username}
-									onChange={(e) => setUsername(e.target.value)}
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
