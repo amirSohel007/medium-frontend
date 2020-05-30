@@ -3,18 +3,18 @@ import Layout from "./Layout";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [processing, setProcessing] = useState(false);
 	const [isError, setError] = useState("")
 	const history = useHistory();
+	const apiURL = process.env.REACT_APP_API_URL
 	const formSubmit = async (e) => {
 		e.preventDefault();
 		setProcessing(true); 
 		const data = { email, password };
-		let res = await axios.post("http://node-article-api.herokuapp.com/api/login", data);
+		let res = await axios.post(`${apiURL}login`, data);
 		if (res.data.status) {
 			setProcessing(false);
 			history.push("/"); //redirect on home page after login
@@ -66,7 +66,7 @@ const Login = () => {
 								</NavLink>
 							</p>
 							 	{isError && (
-								<div class="alert alert-danger mt-3 text-12 text-center" role="alert">
+								<div className="alert alert-danger mt-3 text-12 text-center" role="alert">
 									{isError}
 								</div>
 							)}

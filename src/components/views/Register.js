@@ -9,12 +9,12 @@ const Register = () => {
 	const [password, setPassword] = useState("");
 	const [processing, setProcessing] = useState(false);
 	const [isRegister, registerStatus] = useState(false);
-
+	const apiURL = process.env.REACT_APP_API_URL
 	const formSubmit = async (e) => {
 		setProcessing(true); //start button processing text
 		e.preventDefault();
 		const data = { username, email, password };
-		let res = await axios.post("http://node-article-api.herokuapp.com/api/register", data);
+		let res = await axios.post(`${apiURL}register`, data);
 		if (res.data) {
 			setProcessing(false);
 			registerStatus(true);
@@ -73,7 +73,7 @@ const Register = () => {
 								</NavLink>
 							</p>
 							{isRegister && (
-								<div class="alert alert-success mt-3 text-12 text-center" role="alert">
+								<div className="alert alert-success mt-3 text-12 text-center" role="alert">
 									Your account is created. Please{" "}
 									<NavLink className="primary-text" to="login">
 										Login
