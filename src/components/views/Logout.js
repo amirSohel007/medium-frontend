@@ -1,17 +1,26 @@
-import React, { useState } from "react";
-import { logout } from "./../view-logic/Logout";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router";
-const Logout = () => {
+
+import { connect } from "react-redux";
+import { logout } from "./../../redux/actions/user";
+export const Logout = ({ dispatch }) => {
 	const [output, setOutput] = useState(
 		<div className="contianer m-auto p-5 text-center">
 			<h2>Logging out....</h2>
 		</div>
 	);
-	setTimeout(() => {
-		logout();
-		setOutput(<Redirect to="/" />);
-	}, 1000);
+	// run logout only once
+	useEffect(() => {
+		setTimeout(() => {
+			dispatch(logout());
+			setOutput(<Redirect to="/" />);
+		}, 1000);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	return output;
 };
 
-export default Logout;
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, null)(Logout);

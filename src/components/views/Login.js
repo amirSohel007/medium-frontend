@@ -3,9 +3,10 @@ import Layout from "./Layout";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { connect } from "react-redux";
+import { updateUser } from "./../../redux/actions/user";
 
-import { isAuthenticated } from "./../view-logic/Login";
-const Login = () => {
+export const Login = ({ userState, dispatch }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [processing, setProcessing] = useState(false);
@@ -13,7 +14,7 @@ const Login = () => {
 	const history = useHistory();
 	const apiURL = process.env.REACT_APP_API_URL;
 
-	if (isAuthenticated()) {
+	if (userState.login) {
 		setTimeout(() => {
 			history.push("/"); //redirect after 2s delay
 		}, 2000);
@@ -31,8 +32,9 @@ const Login = () => {
 		const data = { email, password };
 		let res = await axios.post(`${apiURL}login`, data);
 		if (res.data.status) {
-			//Set Token in localStroge
-			localStorage.setItem("authToken", res.data.token);
+			// local storage is updated when updating the state via reducer.. file in /redux/reducer/user
+			// dispatch update() action which will set state.user.login and authtoken
+			dispatch(updateUser({ login: true, authToken: res.data.token }));
 
 			setProcessing(false);
 			history.push("/"); //redirect on home page after login
@@ -82,4 +84,8 @@ const Login = () => {
 	);
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+	userState: state.user,
+});
+
+export default connect(mapStateToProps, null)(Login);
