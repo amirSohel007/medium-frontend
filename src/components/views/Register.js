@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Layout from "./Layout";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { isAuthenticated } from "./../view-logic/Login";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
 	const [email, setEmail] = useState("");
@@ -10,7 +12,18 @@ const Register = () => {
 	const [processing, setProcessing] = useState(false);
 	const [isRegister, registerStatus] = useState(false);
 	const apiURL = process.env.REACT_APP_API_URL;
-
+	const history = useHistory();
+	if (isAuthenticated()) {
+		setTimeout(() => {
+			history.push("/"); //redirect after 2s delay
+		}, 2000);
+		return (
+			<div className="m-5 p-5 text-center container">
+				<h3>Your'e already logged in</h3>
+				<h5>Redirecting....</h5>
+			</div>
+		);
+	}
 	const formSubmit = async (e) => {
 		setProcessing(true); //start button processing text
 		e.preventDefault();
@@ -25,11 +38,11 @@ const Register = () => {
 	return (
 		<Layout>
 			<div className="row justify-content-center">
-				<div className="col-sm-4">
+				<div className="auth-holder">
 					<div className="bg-white form-wrapper mt-5 p-4 border-radius-4">
 						<form>
 							<div className="form-group text-center">
-								<img className="w-50 mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="logo"/>
+								<img className="w-50 mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="logo" />
 							</div>
 							<div className="form-group">
 								<label htmlFor="">Your Name</label>
@@ -47,15 +60,15 @@ const Register = () => {
 								{processing ? "Processing...." : "Sign Up"}
 							</button>
 							<p className="mb-0 text-13 text-center">
-								Alredy have account ?{" "}
-								<NavLink className="primary-text" to="login">
+								Already have account ?{" "}
+								<NavLink className="primary-text" to="/signin">
 									Login
 								</NavLink>
 							</p>
 							{isRegister && (
 								<div className="alert alert-success mt-3 text-12 text-center" role="alert">
 									Your account is created. Please{" "}
-									<NavLink className="primary-text" to="login">
+									<NavLink className="primary-text" to="/signin">
 										Login
 									</NavLink>
 								</div>

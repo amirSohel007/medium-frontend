@@ -6,6 +6,8 @@ import Register from "./components/views/Register";
 import Menu from "./components/views/Menu";
 import Home from "./components/views/Home";
 import UserProfile from "./components/views/User";
+import Logout from "./components/views/Logout";
+import Tag from "./components/views/Tag";
 
 function App() {
 	return (
@@ -21,9 +23,14 @@ function App() {
 				<Route path="/signup" exact>
 					<Register />
 				</Route>
+				<Route path="/logout" exact>
+					<Logout />
+				</Route>
 				<Route path="/user/:id" exact>
 					<UserProfile />
 				</Route>
+				{/* if route set like this we get acces to history and location as props */}
+				<Route path="/tag/:tag" exact component={Tag}></Route>
 			</Switch>
 		</Router>
 	);

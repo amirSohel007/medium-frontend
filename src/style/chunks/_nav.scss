@@ -1,4 +1,3 @@
-$btnGreen:#16a882;
 
 header {
 	border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
@@ -29,6 +28,14 @@ header {
 		}
 	}
 }
+.navbar-nav {
+	flex-direction: row;
+}
+.highlight-hover{
+	&:hover{
+		background: transparentize($color: green, $amount: .9);
+	}
+}
 
 .user-menu a:hover + .dropdown-menus, .dropdown-menus:hover {
     opacity: 1;
@@ -49,7 +56,7 @@ header {
 	transform: translateY(10px);
 	transition: all 0.3s;
 	top: 53px;
-	padding: 8px !important;
+	padding: .5rem 0rem !important;
     border-bottom: solid 2px #16a981;
 	li {
 		a{

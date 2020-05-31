@@ -5,17 +5,18 @@
     color: unset;
     text-decoration: unset;
     line-height: 2rem;
+    transition: .3s;
     &:hover{
         text-decoration: unset;
         color: unset;
     }
     .tag{
-        
         letter-spacing: 1px;
         &::before{
             content: "#";
         }
     }
+    
     display: flex;
     justify-content: space-between;
 }
@@ -23,5 +24,27 @@
 .post-holder{
     .post-card:first-child {
         padding-top:0;
+    }
+}
+
+
+@media (max-width:600px){
+    .hashtag{
+        display: inline-block;
+        border-radius: .5rem;
+        background-color: transparentize($color: $btnGreen, $amount: 0.2);
+        padding: .1rem .5rem;
+        margin: .1rem .2rem;
+        color: white;
+        &:hover{
+            background-color:  $btnGreen;
+            color: white;
+        }
+        .tag-count{
+            margin:0 .5rem;
+        }
+    }
+    .side-panel{
+        min-height: unset;
     }
 }

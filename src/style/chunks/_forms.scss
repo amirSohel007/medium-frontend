@@ -28,3 +28,10 @@ label {font-size: 13px;}
         box-shadow: 0 0 0 !important;
     }
 }
+
+.auth-holder{
+    max-width: 500px;
+    min-width: 300px;
+    width: calc(300px + ((100vw - 300px)/100)*(500px - 300px) );
+    margin: 0rem 2rem;
+}

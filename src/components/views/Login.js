@@ -3,6 +3,8 @@ import Layout from "./Layout";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+
+import { isAuthenticated } from "./../view-logic/Login";
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -10,6 +12,19 @@ const Login = () => {
 	const [isError, setError] = useState("");
 	const history = useHistory();
 	const apiURL = process.env.REACT_APP_API_URL;
+
+	if (isAuthenticated()) {
+		setTimeout(() => {
+			history.push("/"); //redirect after 2s delay
+		}, 2000);
+		return (
+			<div className="m-auto p-5 text-center container">
+				<h3>Your'e already logged in</h3>
+				<h5>Redirecting....</h5>
+			</div>
+		);
+	}
+
 	const formSubmit = async (e) => {
 		e.preventDefault();
 		setProcessing(true);
@@ -17,7 +32,7 @@ const Login = () => {
 		let res = await axios.post(`${apiURL}login`, data);
 		if (res.data.status) {
 			//Set Token in localStroge
-			localStorage.setItem('authToken', res.data.token)
+			localStorage.setItem("authToken", res.data.token);
 
 			setProcessing(false);
 			history.push("/"); //redirect on home page after login
@@ -30,11 +45,11 @@ const Login = () => {
 	return (
 		<Layout>
 			<div className="row justify-content-center">
-				<div className="col-sm-4">
+				<div className="auth-holder">
 					<div className="bg-white form-wrapper mt-5 p-4 border-radius-4">
 						<form>
 							<div className="form-group text-center">
-								<img className="w-50 mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="logo"/>
+								<img className="w-50 mb-2" src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png" alt="logo" />
 							</div>
 							<div className="form-group">
 								<label htmlFor="">Email/Id</label>
@@ -50,7 +65,7 @@ const Login = () => {
 
 							<p className="mb-0 text-13 text-center">
 								No account ?{" "}
-								<NavLink className="primary-text" to="register">
+								<NavLink className="primary-text" to="/singup">
 									Create one
 								</NavLink>
 							</p>

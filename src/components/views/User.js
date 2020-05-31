@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 
 const UserProfile = () => {
 	const [userDetail, setUserDetail] = useState("");
@@ -11,7 +10,7 @@ const UserProfile = () => {
 		async function fetchData() {
 			let res = await axios.get(`${apiURL}user/5ed39b93d9376f05c23b7d3b`, {
 				headers: {
-					Authorization: "Bearer" + ' ' +  localStorage.getItem("authToken"),
+					Authorization: `Bearer ${localStorage.getItem("authToken")}`,
 				},
 			});
 			setUserDetail(res.data);
