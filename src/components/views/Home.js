@@ -15,7 +15,7 @@ function Home() {
 			setPosts(res.data);
 		}
 		register();
-	});
+	},[]);
 
 	let postCard = post && post.map((post) => <PostCard key={post._id} img={profileImg} name="Amir Sohel" date="30 May 2020" title={post.title} preview={post.bodytext} reaction={post.likes} comment={post.comments} />);
 	return (

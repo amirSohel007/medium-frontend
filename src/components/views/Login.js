@@ -16,6 +16,9 @@ const Login = () => {
 		const data = { email, password };
 		let res = await axios.post(`${apiURL}login`, data);
 		if (res.data.status) {
+			//Set Token in localStroge
+			localStorage.setItem('authToken', res.data.token)
+
 			setProcessing(false);
 			history.push("/"); //redirect on home page after login
 		} else {

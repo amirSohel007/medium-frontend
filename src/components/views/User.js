@@ -9,13 +9,12 @@ const UserProfile = () => {
 
 	useEffect(() => {
 		async function fetchData() {
-			let res = await axios.get(`${apiURL}user/5ed238851f4618001780179b`, {
+			let res = await axios.get(`${apiURL}user/5ed39b93d9376f05c23b7d3b`, {
 				headers: {
-					Authorization: "Bearer" + localStorage.getItem("token"),
+					Authorization: "Bearer" + ' ' +  localStorage.getItem("authToken"),
 				},
 			});
 			setUserDetail(res.data);
-			console.log(res.data);
 		}
 		fetchData();
 	});

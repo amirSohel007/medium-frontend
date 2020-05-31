@@ -17,7 +17,6 @@ const Register = () => {
 		const data = { username, email, password };
 		let res = await axios.post(`${apiURL}register`, data);
 		if (res.data) {
-			localStorage.setItem("token", res.data.token);
 			setProcessing(false);
 			registerStatus(true);
 		} else console.log("something went wrong");
