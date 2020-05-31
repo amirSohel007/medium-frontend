@@ -44,7 +44,7 @@ const Register = () => {
 								<input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
 							</div>
 							<button type="submit" className="btn btn-primary w-100 mb-3" disabled={processing} onClick={formSubmit}>
-								{processing ? "Processing...." : "Register"}
+								{processing ? "Processing...." : "Sign Up"}
 							</button>
 							<p className="mb-0 text-13 text-center">
 								Alredy have account ?{" "}

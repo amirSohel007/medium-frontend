@@ -45,7 +45,7 @@ const Login = () => {
 								<input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
 							</div>
 							<button type="submit" className="btn btn-primary w-100 mb-3" disabled={processing} onClick={formSubmit}>
-								{processing ? "Processing...." : "Login"}
+								{processing ? "Processing...." : "Sign In"}
 							</button>
 
 							<p className="mb-0 text-13 text-center">

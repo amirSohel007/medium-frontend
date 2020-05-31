@@ -15,7 +15,7 @@ const Menu = () => {
 						<ul className="navbar-nav mr-auto">
 							<input type="text" placeholder="Search...." className="search" />
 						</ul>
-						<div className="my-2 my-lg-0 form-inline">
+						<div className="my-2 my-lg-0 form-inline sm-position-relative">
 							<button className="btn btn-primary d-none d-lg-block d-md-block">Write Article</button>
 							<ul className="navbar-nav header-icons">
 								<li className="nav-item">
@@ -23,10 +23,14 @@ const Menu = () => {
 										<Bell size={30} />
 									</Link>
 								</li>
-								<li className="nav-item">
+								<li className="nav-item user-menu">
 									<Link className="nav-link" to="#">
 										<Hamburger size={30} />
 									</Link>
+									<ul className="dropdown-menus m-0 p-0 list-unstyled">
+										<li><Link to="signin">Sign In</Link></li>
+										<li><Link to="signup">Sign Up</Link></li>
+									</ul>
 								</li>
 							</ul>
 						</div>

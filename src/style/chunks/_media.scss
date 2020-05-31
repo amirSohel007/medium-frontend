@@ -31,3 +31,9 @@
         margin-bottom: 0 !important;
     }
 }
+
+@media (min-width:768px){
+    .sm-position-relative {
+        position: relative;
+    }
+}

@@ -29,3 +29,37 @@ header {
 		}
 	}
 }
+
+.user-menu a:hover + .dropdown-menus, .dropdown-menus:hover {
+    opacity: 1;
+    transition: all 0.3s;
+    transform: translateY(0);
+}
+
+
+.dropdown-menus {
+    position: absolute;
+    background: #fff;
+    max-width: 150px;
+    width: 200px;
+    right: 0;
+    text-align: left;
+	border: solid 1px #efefef;
+	opacity: 0;
+	transform: translateY(10px);
+	transition: all 0.3s;
+	top: 53px;
+	padding: 8px !important;
+    border-bottom: solid 2px #16a981;
+	li {
+		a{
+			display: block;
+			padding: 6px 6px;
+			font-size: 14px;
+			font-family: 'Ubuntu', sans-serif;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
