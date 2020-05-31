@@ -13,10 +13,11 @@ const Register = () => {
 	const [isRegister, registerStatus] = useState(false);
 	const apiURL = process.env.REACT_APP_API_URL;
 	const history = useHistory();
-	if (isAuthenticated()) {
-		setTimeout(() => {
-			history.push("/"); //redirect after 2s delay
-		}, 2000);
+
+
+	if (isAuthenticated && isAuthenticated()) {
+	
+		setTimeout(() => history.push("/"), 2000); //redirect after 2s delay
 		return (
 			<div className="m-5 p-5 text-center container">
 				<h3>Your'e already logged in</h3>
@@ -24,6 +25,7 @@ const Register = () => {
 			</div>
 		);
 	}
+
 	const formSubmit = async (e) => {
 		setProcessing(true); //start button processing text
 		e.preventDefault();
