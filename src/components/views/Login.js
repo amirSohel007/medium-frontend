@@ -3,8 +3,8 @@ import Layout from "./Layout";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-
 import { isAuthenticated } from "./../view-logic/Login";
+
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -14,9 +14,7 @@ const Login = () => {
 	const apiURL = process.env.REACT_APP_API_URL;
 
 	if (isAuthenticated()) {
-		setTimeout(() => {
-			history.push("/"); //redirect after 2s delay
-		}, 2000);
+		setTimeout(() => history.push("/"), 2000); //redirect after 2s delay
 		return (
 			<div className="m-auto p-5 text-center container">
 				<h3>Your'e already logged in</h3>
@@ -65,7 +63,7 @@ const Login = () => {
 
 							<p className="mb-0 text-13 text-center">
 								No account ?{" "}
-								<NavLink className="primary-text" to="/singup">
+								<NavLink className="primary-text" to="/signup">
 									Create one
 								</NavLink>
 							</p>

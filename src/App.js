@@ -8,6 +8,7 @@ import Home from "./components/views/Home";
 import UserProfile from "./components/views/User";
 import Logout from "./components/views/Logout";
 import Tag from "./components/views/Tag";
+import NewPost from './components/views/New-post'
 
 function App() {
 	return (
@@ -29,6 +30,11 @@ function App() {
 				<Route path="/user/:id" exact>
 					<UserProfile />
 				</Route>
+
+				<Route path="/new-post" exact>
+					<NewPost />
+				</Route>
+
 				{/* if route set like this we get acces to history and location as props */}
 				<Route path="/tag/:tag" exact component={Tag}></Route>
 			</Switch>

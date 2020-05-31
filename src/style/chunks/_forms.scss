@@ -30,8 +30,28 @@ label {font-size: 13px;}
 }
 
 .auth-holder{
-    max-width: 500px;
-    min-width: 300px;
+    max-width: 400px;
+    min-width: 260px;
     width: calc(300px + ((100vw - 300px)/100)*(500px - 300px) );
     margin: 0rem 2rem;
+}
+
+
+.article-form {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 0;
+    border: 1px #e5e5e5 solid;
+    resize: none;
+    padding: 10px 15px;
+}
+
+.body-field {
+    min-height: 250px;
+}
+
+.title-field {
+    font-size: 30px;
+    font-family: 'Comfortaa', cursive;
+    text-transform: capitalize;
 }

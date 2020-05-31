@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Layout from "./Layout";
 import { AiOutlineMenu as Hamburger } from "react-icons/ai";
 import { FiBell as Bell } from "react-icons/fi";
 import UnauthenticatedLink from "./partials/UnauthenticatedLink";
 import AuthenticatedLink from "./partials/AuthenticatedLink";
+
 const Menu = () => {
 	return (
 		<header>
@@ -17,7 +18,7 @@ const Menu = () => {
 						<input type="text" placeholder="Search...." className="search" />
 					</ul>
 					<div className="my-2 my-lg-0 form-inline sm-position-relative">
-						<button className="btn btn-primary d-none d-lg-block d-md-block">Write Article</button>
+						<NavLink to="new-post"><button className="btn btn-primary d-none d-lg-block d-md-block">Write Article</button></NavLink> 
 						<ul className="navbar-nav header-icons">
 							<li className="nav-item">
 								<Link className="nav-link" to="#">
