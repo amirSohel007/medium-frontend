@@ -1,11 +1,18 @@
 import React from "react";
-import { isAuthenticated } from "./../../view-logic/Login";
 import { Link } from "react-router-dom";
-const UnauthenticatedLink = (props) => {
-	if (isAuthenticated()) {
+import { connect } from "react-redux";
+
+export const UnauthenticatedLink = ({ className, to, id, children, userState }) => {
+	const linkProps = { className, to, id };
+
+	if (userState.login) {
 		return "";
 	}
-	return <Link {...props}> {props.children}</Link>;
+	return <Link {...linkProps}> {children}</Link>;
 };
 
-export default UnauthenticatedLink;
+const mapStateToProps = (state) => ({
+	userState: state.user,
+});
+
+export default connect(mapStateToProps, null)(UnauthenticatedLink);
