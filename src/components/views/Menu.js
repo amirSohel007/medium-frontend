@@ -18,7 +18,7 @@ const Menu = () => {
 						<input type="text" placeholder="Search...." className="search" />
 					</ul>
 					<div className="my-2 my-lg-0 form-inline sm-position-relative">
-						<NavLink to="new-post"><button className="btn btn-primary d-none d-lg-block d-md-block">Write Article</button></NavLink> 
+					<AuthenticatedLink><NavLink to="new-post"><button className="btn btn-primary d-none d-lg-block d-md-block">Write Article</button></NavLink> </AuthenticatedLink>
 						<ul className="navbar-nav header-icons">
 							<li className="nav-item">
 								<Link className="nav-link" to="#">

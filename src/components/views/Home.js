@@ -18,7 +18,7 @@ function Home() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	let postCard = post && post.map((post) => <PostCard key={post._id} img={profileImg} name="Amir Sohel" date="30 May 2020" title={post.title} preview={post.bodytext} reaction={post.likes} comment={post.comments} />);
+	let postCard = post && post.map((post) => <PostCard key={post._id} img={profileImg} name="Amir Sohel" date="30 May 2020" title={post.title} preview={post.bodytext} reaction={post.likes} post={post._id} comment={post.comments} />);
 	return (
 		<Layout>
 			<div className="main-container ptb-50">

@@ -1,7 +1,8 @@
 import React from "react";
 import { RiHeart2Line as HeartIcon } from "react-icons/ri";
 import { FaRegCommentAlt as CommentIcon } from "react-icons/fa";
-const PostCard = ({ img, name, date, title, preview, reaction, comment }) => {
+import { NavLink } from "react-router-dom";
+const PostCard = ({ img, name, date, title, preview, reaction, comment, post }) => {
 	return (
 		<div className="post-card mb-4">
 			<div className="row">
@@ -14,7 +15,7 @@ const PostCard = ({ img, name, date, title, preview, reaction, comment }) => {
 				</div>
 			</div>
 			<div className="row">
-				<h4 className="post-title">{title}</h4>
+				<NavLink className="text-body" to={post}><h4 className="post-title">{title}</h4></NavLink>
 				<p className="post-preview">{preview}</p>
 			</div>
 			<div className="row">
