@@ -44,6 +44,9 @@ label {font-size: 13px;}
     border: 1px #e5e5e5 solid;
     resize: none;
     padding: 10px 15px;
+    &:focus{
+        outline: none;
+    }
 }
 
 .body-field {
@@ -51,7 +54,6 @@ label {font-size: 13px;}
 }
 
 .title-field {
-    font-size: 30px;
-    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
     text-transform: capitalize;
 }
