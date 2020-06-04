@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 export const AuthenticatedLink = ({ className, to, id, children, userState }) => {
 	const linkProps = { className, to, id };
 	if (userState.login) {
-		return {...linkProps}> {children}
+		return <Link {...linkProps}> {children}</Link>
 	}
 	return "";
 };
@@ -15,3 +15,4 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, null)(AuthenticatedLink);
+
