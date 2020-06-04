@@ -5,17 +5,19 @@ import axios from "axios";
 const UserProfile = () => {
 	const [userDetail, setUserDetail] = useState("");
 	const apiURL = process.env.REACT_APP_API_URL;
+	const userToken = JSON.parse(localStorage.getItem("bloglyData"))
+
+	const getUser = async () => {
+		let res = await axios.get(`${apiURL}user/5ed39b93d9376f05c23b7d3b`, {
+			headers: {
+				Authorization: `Bearer ${userToken.authToken}`,
+			},
+		});
+		setUserDetail(res.data);
+	};
 
 	useEffect(() => {
-		async function fetchData() {
-			let res = await axios.get(`${apiURL}user/5ed39b93d9376f05c23b7d3b`, {
-				headers: {
-					Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-				},
-			});
-			setUserDetail(res.data);
-		}
-		fetchData();
+		getUser();
 	});
 
 	return (

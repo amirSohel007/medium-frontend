@@ -9,13 +9,13 @@ function Home() {
 	const [post, setPosts] = useState([]);
 	const apiURL = process.env.REACT_APP_API_URL;
 
+	const getPosts = async () => {
+		let res = await axios.get(`${apiURL}posts`);
+		setPosts(res.data);
+	};
+
 	useEffect(() => {
-		async function register() {
-			let res = await axios.get(`${apiURL}posts`);
-			setPosts(res.data);
-		}
-		register();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		getPosts();
 	}, []);
 
 	let postCard = post && post.map((post) => <PostCard key={post._id} img={profileImg} name="Amir Sohel" date="30 May 2020" title={post.title} preview={post.bodytext} reaction={post.likes} post={post._id} comment={post.comments} />);

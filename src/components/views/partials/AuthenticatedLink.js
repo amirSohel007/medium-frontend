@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 export const AuthenticatedLink = ({ className, to, id, children, userState }) => {
 	const linkProps = { className, to, id };
 	if (userState.login) {
-		return <Link {...linkProps}> {children}</Link>;
+		return {...linkProps}> {children}
 	}
 	return "";
 };
